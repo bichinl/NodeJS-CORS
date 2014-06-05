@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NodeJS CORS</title>
+
+    <!-- Bootstrap -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+	    <div class="jumbotron">
+	    	<h1>NodeJS CORS</h1>
+	    	<p>Some contente here!</p>
+	    	<div class="row">
+	    		<div class="col-lg-6">
+	    			<div class="form-group">
+	    				<label>Nombre</label>
+		    			<input type="text" class="form-control" name="nombre" placeholder="Nombre de usuario">
+	    			</div>
+	    		</div>
+	    		<div class="col-lg-6">
+	    			<div class="form-group">
+	    				<label>Password</label>
+		    			<input type="password" class="form-control" name="password" placeholder="Password de usuario">
+	    			</div>
+	    		</div>
+	    	</div>
+	    	<p><a href="#" class="btn btn-primary btn-lg" role="button">Link to Node.JS CORS</a></p>
+	    	<small class="text-muted">http://pacific-ridge-2356.herokuapp.com/</small>
+	    </div>
+
+	    <div class="well">
+	    	<p class="lead">JSON response:</p>
+	    	<p class="results">- - - </p>
+	    </div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+    	$('a').on('click', function(e){
+    		e.preventDefault();
+    		var n = $('input[name="nombre"]').val();
+    		var p = $('input[name="password"]').val();
+    		
+    		$.ajax({
+    			url: 'http://pacific-ridge-2356.herokuapp.com/webservice/'+n+'/'+p,
+    			dataType: 'json',
+    			success: function(data){
+    				// $('.results').html(JSON.stringify(data, null, 4));
+    				writeToDom('Success:',JSON.stringify(data, null, 4), '#fffdd4');
+    			},error:function(error){
+    				// $('.results').html('Error: '+JSON.stringify(error, null, 4));
+    				writeToDom('ERROR:',JSON.stringify(error, null, 4), '#ffc7bc');
+    			}
+    		});
+    	});
+
+		function writeToDom(title, content, color) {
+			$(".results").html("<p>"+title+"</p><div><pre style='background:"+color+"'>" + content + "</pre></div>");
+		}
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

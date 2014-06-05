@@ -1,0 +1,29 @@
+{
+  "name": "pacific-ridge-2356",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.4.1",
+    "morgan": "^1.1.1",
+    "body-parser": "^1.3.0",
+    "method-override": "^2.0.1",
+    "cors": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:pacific-ridge-2356.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "cors"
+  ],
+  "author": "Sam M de O",
+  "license": "ISC"
+}
